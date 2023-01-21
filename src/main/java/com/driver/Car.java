@@ -9,19 +9,27 @@ public class Car extends Vehicle {
     private int currentGear;
     private int seats;
 
-    public Car(String name, int currentSpeed, int currentDirection, int wheels, String type, int doors, int gears, boolean isManual, int currentGear, int seats) {
-        super(name, currentSpeed, currentDirection);
+    public Car(String name, int wheels, int doors, int gears, boolean isManual, String type, int seats) {
+        super(name);
+        //Hint: Car extends Vehicle
+        //setName(name);
         this.wheels = wheels;
-        this.type = type;
         this.doors = doors;
-        this.gears = gears;
-        this.isManual = isManual;
-        this.currentGear = currentGear;
+        this.gears =gears;
+        this.isManual =isManual;
+        this.type = type;
         this.seats = seats;
 
         currentGear = 1;
+
     }
 
+    public int getCurrentGear() {
+        return currentGear;
+    }
+    public void setCurrentGear(int currentGear) {
+        this.currentGear = currentGear;
+    }
 
     public int getWheels() {
         return wheels;
@@ -63,14 +71,6 @@ public class Car extends Vehicle {
         isManual = manual;
     }
 
-    public int getCurrentGear() {
-        return currentGear;
-    }
-
-    public void setCurrentGear(int currentGear) {
-        this.currentGear = currentGear;
-    }
-
     public int getSeats() {
         return seats;
     }
@@ -79,29 +79,14 @@ public class Car extends Vehicle {
         this.seats = seats;
     }
 
-//    public Car(String name, int wheels, String type, int doors, int gears, boolean isManual, int currentGear, int seats) {
-//        super(name);
-//        this.wheels = wheels;
-//        this.type = type;
-//        this.doors = doors;
-//        this.gears = gears;
-//        this.isManual = isManual;
-//        this.currentGear = currentGear;
-//        this.seats = seats;
-//    }
-
-//    public Car(String name, int wheels, int doors, int gears, boolean isManual, String type, int seats) {
-//
-//        //Hint: Car extends Vehicle
-//    }
-
     public void changeGear(int newGear){
-        this.currentGear = newGear;
+        currentGear = newGear;
         System.out.println("changeGear method called - The gear is changed to: " + currentGear);
     }
 
     public void changeSpeed(int newSpeed, int newDirection){
-        move(newSpeed,newDirection);
+
+        move(newSpeed, newDirection);
         System.out.println("changeSpeed method called - The speed is changed to: " + newSpeed + ", and the direction is changed to: " + newDirection + " degrees");
     }
 }

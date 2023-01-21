@@ -1,10 +1,13 @@
 package com.driver;
 
-abstract class Boat  implements WaterVehicle{
-
+public class Boat implements WaterVehicle{
     private String name;
     private int capacity;
 
+    public Boat(String name, int capacity) {
+        this.name = name;
+        this.capacity = capacity;
+    }
 
     public String getName() {
         return name;
@@ -22,17 +25,13 @@ abstract class Boat  implements WaterVehicle{
         this.capacity = capacity;
     }
 
-    Boat(String name, int capacity) {
-        this.name = name;
-        this.capacity = capacity;
+    @Override
+    public String getVehicleName() {
+        return getName();
     }
 
     @Override
-    public int getVehicleCapacity(){
+    public int getVehicleCapacity() {
         return getCapacity();
-    }
-
-    public String getVehiceName(){
-        return getName();
     }
 }
